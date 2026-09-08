@@ -1,0 +1,22 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+python-dotenv==1.0.1
+
+pypdf==5.0.1
+python-docx==1.1.2
+python-pptx==0.6.23
+
+# ONNX-based local embeddings (no PyTorch/transformers, no C++ build step)
+fastembed==0.4.2
+# chroma-hnswlib (a chromadb dependency) has no Windows wheel for Python
+# 3.12 in any chromadb version, so native `pip install` on Windows +
+# py3.12 will try to compile it and fail without MSVC installed. This
+# doesn't affect Docker/Render (Linux base image, wheels install cleanly)
+# or Python 3.11 on Windows. See README's "Running locally" section.
+chromadb==0.6.3
+
+groq==1.7.0
+tenacity==9.0.0
+slowapi==0.1.9

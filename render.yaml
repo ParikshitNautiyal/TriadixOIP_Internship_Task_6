@@ -1,0 +1,60 @@
+services:
+  - type: web
+    name: reading-room-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    # Free tier: no persistent disk allowed (see note below), and the
+    # service spins down after ~15 min idle (cold start ~30-60s on the
+    # next request). Fine for a portfolio demo. Switch to `starter` and
+    # uncomment the `disk` block below if you want the knowledge base to
+    # survive restarts/redeploys.
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false # set manually in the Render dashboard — never commit real keys
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
+      - key: EMBEDDING_MODEL_NAME
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: CHUNK_SIZE
+        value: "1000"
+      - key: CHUNK_OVERLAP
+        value: "150"
+      - key: TOP_K
+        value: "4"
+      - key: MAX_RELEVANT_DISTANCE
+        value: "0.9"
+      - key: CHROMA_PERSIST_DIR
+        value: /app/data/chroma_store
+      - key: CHROMA_COLLECTION_NAME
+        value: pdf_knowledge_base
+      - key: ENVIRONMENT
+        value: production
+      - key: MAX_UPLOAD_MB
+        value: "50"
+      - key: ALLOWED_ORIGINS
+        # Your real Vercel production domain (not a per-deploy preview URL
+        # with a hash suffix — those change on every deployment).
+        value: https://triadix-oip-internship-task-6.vercel.app,http://localhost:5173
+      - key: RATE_LIMIT_CHAT
+        value: 15/minute
+      - key: RATE_LIMIT_UPLOAD
+        value: 10/minute
+      - key: RATE_LIMIT_TEST
+        value: 5/minute
+      - key: RATE_LIMIT_RESET
+        value: 5/minute
+      - key: GROQ_MAX_REQUESTS_PER_MINUTE
+        value: "25"
+      - key: GROQ_MAX_RETRIES
+        value: "4"
+    # Requires plan: starter or above -- Render doesn't support persistent
+    # disks on the free tier. Uncomment once you've upgraded the plan above:
+    # disk:
+    #   name: reading-room-data
+    #   mountPath: /app/data
+    #   sizeGB: 1

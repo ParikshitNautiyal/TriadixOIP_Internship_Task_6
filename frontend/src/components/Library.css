@@ -1,0 +1,143 @@
+.library-heading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--navy-deep);
+}
+
+.library-sub {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.dropzone {
+  border: 1px dashed var(--rule-strong);
+  border-radius: 3px;
+  padding: 18px 14px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzone.drag-over {
+  border-color: var(--gold);
+  background: var(--gold-wash);
+}
+
+.dropzone.busy {
+  cursor: default;
+  color: var(--ink-faint);
+}
+
+.dropzone-link {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.upload-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upload-log-item {
+  font-size: 12.5px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border-left: 2px solid var(--rule-strong);
+  background: var(--paper-raised);
+}
+
+.upload-log-item .filename {
+  display: block;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.upload-log-item .detail {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.upload-log-item.status-ok {
+  border-left-color: var(--green);
+}
+
+.upload-log-item.status-skipped {
+  border-left-color: var(--gold);
+}
+
+.upload-log-item.status-error {
+  border-left-color: var(--danger);
+}
+
+.shelf {
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  flex: 1;
+}
+
+.shelf-heading {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+.shelf-empty {
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin: 0;
+}
+
+.shelf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shelf-list li {
+  font-size: 13.5px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+  word-break: break-word;
+}
+
+.shelf-list li:last-child {
+  border-bottom: none;
+}
+
+.clear-button {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: var(--danger);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.clear-button:hover:not(:disabled) {
+  background: var(--danger-wash);
+  border-color: var(--danger);
+}
+
+.clear-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

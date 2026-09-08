@@ -1,0 +1,76 @@
+.about-panel {
+  padding: 24px 32px 48px;
+  max-width: 68ch;
+}
+
+.about-panel h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin: 0 0 20px;
+}
+
+.about-steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 14px 0 14px 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.about-steps li:first-child {
+  border-top: none;
+}
+
+.about-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold-wash);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-step-title {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 14.5px;
+}
+
+.about-steps p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.about-note {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: var(--green-wash);
+  border-radius: 3px;
+}
+
+.about-note p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink);
+}
