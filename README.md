@@ -6,9 +6,7 @@ from what's actually in your documents and cited back to the exact page,
 slide, or section it came from — if the answer isn't in there, the app
 says so instead of guessing.
 
-**Live demo:** _add your deployed links here once live_
-- Frontend (Vercel): `https://your-app.vercel.app`
-- API (Render): `https://reading-room-api.onrender.com`
+**Live demo:** (https://triadix-oip-internship-task-6.vercel.app/)
 
 ## How it works
 
