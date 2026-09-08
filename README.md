@@ -35,15 +35,33 @@ a confidently-wrong guess.
 ## Architecture
 
 ```
-┌─────────────────────┐        HTTPS/JSON        ┌──────────────────────────┐
-│   frontend/          │  ───────────────────────▶ │   backend/                │
-│   React + Vite        │ ◀─────────────────────── │   FastAPI (Docker)        │
-│   deployed on Vercel  │                            │   deployed on Render      │
-└─────────────────────┘                            │                            │
-                                                      │  local embeddings         │
-                                                      │  ChromaDB (vector store)  │
-                                                      │  Groq API (generation)    │
-                                                      └──────────────────────────┘
+        User
+         │
+         ▼
+┌─────────────────┐
+│    Frontend     │
+│  React + Vite   │
+│     Vercel      │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│     Backend     │
+│    FastAPI      │
+│     Render      │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│   AI / RAG      │
+│                 │
+│ • Embeddings    │
+│ • ChromaDB      │
+│ • Groq API      │
+└─────────────────┘
+         │
+         ▼
+      AI Answer
 ```
 
 Originally this was a single Streamlit app doing both UI and logic in one
