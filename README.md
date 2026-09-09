@@ -7,6 +7,25 @@ slide, or section it came from — if the answer isn't in there, the app
 says so instead of guessing.
 
 **Live demo:** (https://triadix-oip-internship-task-6.vercel.app/)
+## Screenshots
+
+### Main Interface
+
+![Reading Room Main Interface](assets/screenshots/MainUI.png)
+
+### Question Answering + Source Citations
+
+![Question Answering + Citations](assets/screenshots/QA_citations.png)
+
+### Not Found Response
+
+![Not Found Response](assets/screenshots/NotFound.png)
+
+### Batch Questions
+
+![Batch Questions](assets/screenshots/BatchQuestions1.png)
+![Batch Questions](assets/screenshots/BatchQuestions2.png)
+![Batch Questions](assets/screenshots/BatchQuestions3.png)
 
 ## How it works
 
